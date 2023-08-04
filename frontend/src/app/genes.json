@@ -1,0 +1,270 @@
+{
+    "1": {
+        "name": "A",
+        "description": "\"Agouti series\", affects distribution of both eumelanin and phaeomelanin",
+        "genes": [
+            {
+                "name": "Sable",
+                "description": "Red with or without black tipping.", 
+                "gene": "Ay"
+            },
+            {
+                "name": "Agouti",
+                "description": "Banded hairs. The gene responsible for wolf grey.", 
+                "gene": "aw"
+            },
+            {
+                "name": "Tan points",
+                "description": "Black body with red on muzzle, chest, eyebrows, legs and vent.", 
+                "gene": "at"
+            },
+            {
+                "name": "Recessive black",
+                "description": "Solid black with no red in the coat at all.", 
+                "gene": "a"
+            }
+        ]
+    },
+    "2": {
+        "name": "B",
+        "description": "\"Liver series\", affects colour of eumelanin",
+        "genes": [
+            {
+                "name": "Normal pigment",
+                "description": "A Bb or BB dog produces normal black eumelanin.",
+                "gene": "B"
+            },
+            {
+                "name": "Normal pigment",
+                "description": "A bb dog produces liver eumelanin instead of black.",
+                "gene": "b"
+            }
+        ]
+    },
+    "3": {
+        "name": "D",
+        "description": "\"Dilution series\", affects intensity of eumelanin",
+        "genes": [
+            {
+                "name": "Normal pigment",
+                "description": "Normal black or liver pigment.",
+                "gene": "D"
+            },
+            {
+                "name": "Diluted pigment",
+                "description": "When homozygous (dd), turns black to blue and liver to isabella.",
+                "gene": "d"
+            }
+        ]
+    },
+    "4": {
+        "name": "Co",
+        "description": "Cocoa in French Bulldogs",
+        "genes": [
+            {
+                "name": "Non-cocoa",
+                "description": "Normal pigment.",
+                "gene": "Co"
+            },
+            {
+                "name": "Cocoa",
+                "description": "Brown eumalanin, similar to liver.",
+                "gene": "co"
+            }
+        ]
+    },
+    "5": {
+        "name": "E",
+        "description": "\"Extension series\", affects distribution of eumelanin.",
+        "genes": [
+            {
+                "name": "Masked",
+                "description": "Black on the muzzle and the ears, and sometimes spreading to black tipping on the chest and/or back.",
+                "gene": "Em"
+            },
+            {
+                "name": "Normal extension",
+                "description": "No restriction of pigment.",
+                "gene": "E"
+            },
+            {
+                "name": "Grizzle/Domino",
+                "description": "Found only in certain sighthound breeds.",
+                "gene": "Eg"
+            },
+            {
+                "name": "Northern domino",
+                "description": "Found only in Northern and some primitive breeds.",
+                "gene": "Ea"
+            },
+            {
+                "name": "Cocker Spaniel sable",
+                "description": "Found only in Cocker Spaniels. Requires tan points (atat) in order to be expressed.",
+                "gene": "Eh"
+            },
+            {
+                "name": "Recessive red",
+                "description": "Solid red all over, except for white markings.",
+                "gene": "e"
+            }
+        ]
+    },
+    "6": {
+        "name": "G",
+        "description": "\"Greying series\", affects how eumelanin keeps its intensity over time",
+        "genes": [
+            {
+                "name": "Progressive greying",
+                "description": "A dog with one or two G genes will be born dark-coloured and its hair will lighten over time.",
+                "gene": "G"
+            },
+            {
+                "name": "Normal",
+                "description": "No lightening of pigment.",
+                "gene": "g"
+            }
+        ]
+    },
+    "7": {
+        "name": "H",
+        "description": "\"harlequin series\", modifies merle",
+        "genes": [
+            {
+                "name": "Harlequin",
+                "description": "Areas between patches on a merle dog are turned to white, leaving solid pigmented patches on a white base. Only works with merle gene and does not affect non-merle dogs.",
+                "gene": "H"
+            },
+            {
+                "name": "Non-harlequin",
+                "description": "Normal expression of merle.",
+                "gene": "h"
+            }
+        ]
+    },
+    "8": {
+        "name": "I",
+        "description": "\"Intensity series\", affects the richness of phaeomelanin",
+        "genes": [
+            {
+                "name": "Normal",
+                "description": "No lightening of pigment.",
+                "gene": "I"
+            },
+            {
+                "name": "Diluted",
+                "description": "Diluted/pale phaeomelanin.",
+                "gene": "i"
+            }
+        ]
+    },
+    "9": {
+        "name": "K",
+        "description": "\"black series\", affects eumelanin",
+        "genes": [
+            {
+                "name": "Black",
+                "description": "Solid black all over.",
+                "gene": "Kb"
+            },
+            {
+                "name": "Brindle",
+                "description": "Black stripes on a red base.",
+                "gene": "kbr"
+            },
+            {
+                "name": "Non-solid black",
+                "description": "A kyky dog will express whichever genes are on its A locus.",
+                "gene": "ky"
+            }
+        ]
+    },
+    "10": {
+        "name": "M",
+        "description": "\"merle series\", affects intensity of eumelanin",
+        "genes": [
+            {
+                "name": "Cryptic merle",
+                "description": "Will appear solid-colored.",
+                "gene": "Mc/Mc"
+            },
+            {
+                "name": "Atypical merle",
+                "description": "Some merling may be visible, but it may be greyish.",
+                "gene": "Ma/Ma"
+            },
+            {
+                "name": "Normal merle",
+                "description": "Black patches on a grey base.",
+                "gene": "M"
+            },
+            {
+                "name": "Harlequin merle",
+                "description": "Some areas of pigment are diluted to white.",
+                "gene": "Mh"
+            },
+            {
+                "name": "Non-merle",
+                "description": "Normal expression of eumelanin.",
+                "gene": "m"
+            }
+        ]
+    },
+    "11": {
+        "name": "S",
+        "description": "\"spotting series\", affects distribution of all pigment",
+        "genes": [
+            {
+                "name": "No white",
+                "description": "Al of coat is pigmented - no white spotting, or minimal white spotting.",
+                "gene": "S"
+            },
+            {
+                "name": "Piebald",
+                "description": "Varying pigmented patches on a white base.",
+                "gene": "sp"
+            },
+            {
+                "name": "Irish spotting",
+                "description": "White on muzzle, neck, chest, feet and tail tip.",
+                "gene": "si"
+            }
+        ]
+    },
+    "12": {
+        "name": "T",
+        "description": "\"ticking series\", affects distribution of all pigment",
+        "genes": [
+            {
+                "name": "Ticking",
+                "description": "White areas are ticked with small flecks or spots of colour.",
+                "gene": "T"
+            },
+            {
+                "name": "Roan",
+                "description": "More dense than ticking.",
+                "gene": "Tr"
+            },
+            {
+                "name": "Clear white",
+                "description": "No ticking on white areas.",
+                "gene": "t"
+            }
+        ]
+    },
+    "13": {
+        "name": "Z",
+        "description": "albino in Dobermans",
+        "genes": [
+            {
+                "name": "Non-albino",
+                "description": "Normal pigment",
+                "gene": "Z"
+            },
+            {
+                "name": "Albino",
+                "description": "Pigment diluted to off-white.",
+                "gene": "z"
+            }
+        ]
+    }
+}
