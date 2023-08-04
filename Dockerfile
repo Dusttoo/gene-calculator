@@ -1,10 +1,12 @@
-FROM node:18-alpine
+FROM node:18-alpine AS build-stage
 
 WORKDIR /frontend
 COPY frontend/. .
 
+# You have to set this because it should be set during build time.
 ENV REACT_APP_BASE_URL="https://gene-calculator-b2cec66e45a5.herokuapp.com/"
 
+# Build our React App
 RUN npm install
 RUN npm run build
 
@@ -16,7 +18,9 @@ WORKDIR /var/www
 COPY . .
 COPY --from=build-stage /frontend/build/* app/static/
 
+# Install Python Dependencies
 RUN pip install -r requirements.txt
 RUN pip install psycopg2
 
+# Run flask environment
 CMD gunicorn app:app
