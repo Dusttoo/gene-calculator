@@ -8,7 +8,7 @@ ENV REACT_APP_BASE_URL="https://gene-calculator-b2cec66e45a5.herokuapp.com/"
 
 # Build our React App
 RUN npm install
-RUN npm run build
+RUN next build
 
 FROM python:3.9
 

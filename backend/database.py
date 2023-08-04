@@ -1,10 +1,12 @@
+import os
 import harperdb
+from dotenv import load_dotenv
 
-HARPERDB_PASSWORD = '0^HpT47K8U@i'
-HARPERDB_URL = "https://cloud-1-geney.harperdbcloud.com"
-HARPERDB_USERNAME = "geney"
+load_dotenv()
+
+
 db = harperdb.HarperDB(
-    url=HARPERDB_URL,
-    username=HARPERDB_USERNAME,
-    password=HARPERDB_PASSWORD
+    url=os.getenv("HARPERDB_URL"),
+    username=os.getenv("HARPERDB_USERNAME"),
+    password=os.getenv("HARPERDB_PASSWORD")
 )
