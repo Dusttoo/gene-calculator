@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Gene } from "../Models/gene";
 import styles from "../page.module.css";
 
-export default function GeneButton(gene:Gene) {
+export default function GeneButton({name, description, gene}: Gene) {
   const [selected, setSelected] = useState(false);
   const updateSelected = () => {
     setSelected(!selected)
@@ -17,11 +17,11 @@ export default function GeneButton(gene:Gene) {
           selected ? styles.geneSelectorSelected : styles.geneSelectorButton
         }
       >
-        {gene.gene}
+        {gene}
       </button>
       {/* Show information on hover */}
       <p className={styles.geneInfo}>
-        {gene.name} - {gene.description}
+        {name} - {description}
       </p>
     </>
   );
