@@ -1,31 +1,31 @@
-{
-    "1": {
+[
+    {
         "name": "A",
         "description": "\"Agouti series\", affects distribution of both eumelanin and phaeomelanin",
         "genes": [
             {
                 "name": "Sable",
-                "description": "Red with or without black tipping.", 
+                "description": "Red with or without black tipping.",
                 "gene": "Ay"
             },
             {
                 "name": "Agouti",
-                "description": "Banded hairs. The gene responsible for wolf grey.", 
+                "description": "Banded hairs. The gene responsible for wolf grey.",
                 "gene": "aw"
             },
             {
                 "name": "Tan points",
-                "description": "Black body with red on muzzle, chest, eyebrows, legs and vent.", 
+                "description": "Black body with red on muzzle, chest, eyebrows, legs and vent.",
                 "gene": "at"
             },
             {
                 "name": "Recessive black",
-                "description": "Solid black with no red in the coat at all.", 
+                "description": "Solid black with no red in the coat at all.",
                 "gene": "a"
             }
         ]
     },
-    "2": {
+    {
         "name": "B",
         "description": "\"Liver series\", affects colour of eumelanin",
         "genes": [
@@ -41,7 +41,7 @@
             }
         ]
     },
-    "3": {
+    {
         "name": "D",
         "description": "\"Dilution series\", affects intensity of eumelanin",
         "genes": [
@@ -57,7 +57,7 @@
             }
         ]
     },
-    "4": {
+    {
         "name": "Co",
         "description": "Cocoa in French Bulldogs",
         "genes": [
@@ -73,7 +73,7 @@
             }
         ]
     },
-    "5": {
+    {
         "name": "E",
         "description": "\"Extension series\", affects distribution of eumelanin.",
         "genes": [
@@ -109,7 +109,7 @@
             }
         ]
     },
-    "6": {
+    {
         "name": "G",
         "description": "\"Greying series\", affects how eumelanin keeps its intensity over time",
         "genes": [
@@ -125,7 +125,7 @@
             }
         ]
     },
-    "7": {
+    {
         "name": "H",
         "description": "\"harlequin series\", modifies merle",
         "genes": [
@@ -141,7 +141,7 @@
             }
         ]
     },
-    "8": {
+    {
         "name": "I",
         "description": "\"Intensity series\", affects the richness of phaeomelanin",
         "genes": [
@@ -157,7 +157,7 @@
             }
         ]
     },
-    "9": {
+    {
         "name": "K",
         "description": "\"black series\", affects eumelanin",
         "genes": [
@@ -178,7 +178,7 @@
             }
         ]
     },
-    "10": {
+    {
         "name": "M",
         "description": "\"merle series\", affects intensity of eumelanin",
         "genes": [
@@ -209,7 +209,7 @@
             }
         ]
     },
-    "11": {
+    {
         "name": "S",
         "description": "\"spotting series\", affects distribution of all pigment",
         "genes": [
@@ -230,7 +230,7 @@
             }
         ]
     },
-    "12": {
+    {
         "name": "T",
         "description": "\"ticking series\", affects distribution of all pigment",
         "genes": [
@@ -251,7 +251,7 @@
             }
         ]
     },
-    "13": {
+    {
         "name": "Z",
         "description": "albino in Dobermans",
         "genes": [
@@ -267,4 +267,4 @@
             }
         ]
     }
-}
+]

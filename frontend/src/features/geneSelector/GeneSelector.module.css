@@ -1,0 +1,50 @@
+.locusCard {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.geneSelectorContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.geneSelector {
+    /* width: 100%; */
+    /* border: 1px solid green; */
+}
+
+.geneSelectorSelected {
+    width: 100%;
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.geneSelectorButton {
+    width: 100%;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.geneSelectorButton:hover {
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.geneInfo {
+    display: none;
+}
