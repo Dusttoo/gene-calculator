@@ -6,7 +6,7 @@ import { Loci, Parent } from "../../Models/geneSelector";
 export default function ParentBox(parent: Parent) {
   return (
     <div className={styles.parentContainer}>
-      <h2>{parent.parent}</h2>
+      <h2>{parent.parent} </h2>
       {Object.values(genes).map((locus: Loci) => (
         <div key={locus.genes[0].gene}>
           <Locus
@@ -16,6 +16,7 @@ export default function ParentBox(parent: Parent) {
           />
         </div>
       ))}
+      
     </div>
   );
 }

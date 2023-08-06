@@ -18,8 +18,8 @@ WORKDIR /var/www
 COPY . .
 COPY --from=build-stage /frontend/build/* app/static/
 
-WORKDIR /backend
-COPY backend/. .
+# WORKDIR /backend
+# COPY backend/. .
 
 # Install Python Dependencies
 RUN pip install -r requirements.txt
