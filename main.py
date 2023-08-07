@@ -1,7 +1,8 @@
 from collections import Counter
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.database import db
+from database import db
+
 app = FastAPI()
 
 origins = [
@@ -19,8 +20,8 @@ app.add_middleware(
 )
 
 @app.get("/")
-def app_status():
-    return "Here is some data"
+def root():
+    return {"message": "Hello World"}
 
 @app.get("/users")
 def get_users():
