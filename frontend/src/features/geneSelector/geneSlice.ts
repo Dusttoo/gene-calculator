@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { SelectedGenes } from "../../Models/geneSelector";
 
 export interface GeneState {
-  geneState: string[];
+  geneState: SelectedGenes[];
 }
 
 const initialState: GeneState = {
@@ -13,15 +14,17 @@ export const geneSlice = createSlice({
   name: "genes",
   initialState,
   reducers: {
-    setGeneState(state, action) {
+    addGene(state, action) {
       state.geneState = [...state.geneState, action.payload];
     },
+    removeGene(state, action) {
+      state.geneState.splice(state.geneState.indexOf(action.payload), 1);
+    },
   },
-  extraReducers: () => {
-  },
+  extraReducers: () => {},
 });
 
-export const { setGeneState } = geneSlice.actions;
+export const { addGene, removeGene } = geneSlice.actions;
 export const selectGeneState = (state: RootState) => state.genes.geneState;
 
 export default geneSlice.reducer;

@@ -13,11 +13,12 @@ export default function Locus({ name, description, genes }: Loci) {
       <p>{description}</p>
       <div className={styles.geneSelectorContainer}>
         {genes.map((trait: Gene) => (
-          <div key={trait.gene} className={styles.geneSelector}>
+          <div key={genes.indexOf(trait)} className={styles.geneSelector}>
             <GeneButton
               name={trait.name}
               description={trait.description}
               gene={trait.gene}
+              locus={trait.locus}
             />
           </div>
         ))}

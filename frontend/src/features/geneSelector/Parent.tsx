@@ -1,21 +1,27 @@
 import styles from "./GeneSelector.module.css";
 import genes from "../../genes.json";
 import Locus from "./Locus";
-import { Loci, Parent } from "../../Models/geneSelector";
+import { Loci, LocusData, Parent } from "../../Models/geneSelector";
 
 export default function ParentBox(parent: Parent) {
+  console.log(genes)
+  const locusData: LocusData = {locusTypes: [...genes ]};
+
   return (
     <div className={styles.parentContainer}>
       <h2>{parent.parent} </h2>
-      {Object.values(genes).map((locus: Loci) => (
-        <div key={locus.genes[0].gene}>
-          <Locus
-            name={locus.name}
-            description={locus.description}
-            genes={locus.genes}
-          />
-        </div>
-      ))}
+      {locusData.locusTypes.map((locus: Loci) => {
+        return (
+          <div key={Object.values(genes).indexOf(locus)}>
+            <Locus
+              name={locus.name}
+              description={locus.description}
+              genes={locus.genes}
+            />
+          </div>
+        );
+
+})}
       
     </div>
   );
