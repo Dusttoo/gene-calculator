@@ -1,7 +1,7 @@
 from collections import Counter
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import db
+from app.database import db
 app = FastAPI()
 
 origins = [
