@@ -14,10 +14,6 @@ function App() {
   const [geneResults, setGeneResults] = useState<GeneResults>({});
   const [results, setResults] = useState(false)
 
-  useEffect(() => {
-    setResults(!results)
-  }, [geneResults])
-
   const handleSubmit = async () => {
     const loci: SelectedLoci = {};
     const listOfGenes: string[][] = []
@@ -42,6 +38,7 @@ function App() {
        const data = await res.json();
        console.log(data)
        setGeneResults(data)
+       setResults(true)
      } catch (err) {
        console.log(err);
      }
@@ -57,19 +54,19 @@ function App() {
       <div className="logoContainer"></div>
 
       {results ? (
-        Object.keys(geneResults).map((key) => {
-          const value = geneResults[key];
-          return (
-            <div>
-              <p>
-                {key} : {value}
-              </p>
-            </div>
-
-          );
-        })
-        // <button onClick={() => setResults(false)}>Try again</button>
-
+        <div>
+          {Object.keys(geneResults).map((key) => {
+            const value = geneResults[key];
+            return (
+              <div>
+                <p>
+                  {key} : {value}
+                </p>
+              </div>
+            );
+          })}
+          <button onClick={() => setResults(false)}>Try again</button>
+        </div>
       ) : (
         <main className={styles.main}>
           <h1 className={styles.header}>Geney</h1>
