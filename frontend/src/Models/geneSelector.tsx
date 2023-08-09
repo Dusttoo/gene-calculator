@@ -27,3 +27,7 @@ export type SelectedGenes = {
 export type SelectedLoci = {
   [key: string]: string[]
 };
+
+export type GeneResults = {
+  [key: string]: string[];
+};
