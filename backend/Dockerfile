@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD [ "uvicorn", "main:app" ]
+CMD uvicorn --host 0.0.0.0 --port $PORT main:app
