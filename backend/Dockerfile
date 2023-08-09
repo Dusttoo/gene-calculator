@@ -1,10 +1,12 @@
 FROM python:3.9
 
-EXPOSE 8000
-
 WORKDIR /backend
-COPY . .
 
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD [ "uvicorn", "main:app", "--reload" ]
+COPY . .
+
+EXPOSE 8000
+
+CMD [ "uvicorn", "main:app", "--reload", "--host", "0.0.0.0" ]
