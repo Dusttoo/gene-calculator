@@ -17,18 +17,9 @@ jobs:
       - name: Login to Heroku Container registry
         run: heroku container:login 
 
-      - name: Build, Push and Release Server Docker container to Heroku. 
-        uses: gonuit/heroku-docker-deploy@v1.3.3 
-        with:
-          email: ${{ secrets.HEROKU_EMAIL }}
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: gene-calculator-server
-          dockerfile_directory: ./backend
-      
       - name: Build, Push and Release Web Docker container to Heroku. 
         uses: gonuit/heroku-docker-deploy@v1.3.3 
         with:
           email: ${{ secrets.HEROKU_EMAIL }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: gene-calculator-web
-          dockerfile_directory: ./frontend
+          heroku_app_name: gene-calculator
