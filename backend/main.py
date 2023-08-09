@@ -23,12 +23,12 @@ app.add_middleware(
 def root():
     return {"message": "Hello World"}
 
-@app.get("/users")
+@app.get("/api/users")
 def get_users():
     users = db.sql('SELECT * FROM geney.Users ORDER BY first_name DESC')
     return users
 
-@app.post("/gene-calculator")
+@app.post("/api/gene-calculator")
 def get_gene_calculations(genes: list[list[str]]):
     gene_calculations = {}
     # Finds all possible combinations of each gene
@@ -42,12 +42,10 @@ def get_gene_calculations(genes: list[list[str]]):
 
 
     for gene_set in genes:
-        print(gene_set)
         pairs = find_all_pairs(gene_set)
 
         # Calculates the percentage of each combination
         counted_pairs = Counter(pairs)
         for k, v in counted_pairs.items():
-            gene_calculations[k] = v
-            # return f'{k} : {round(v/len(pairs), 2)}'
+            gene_calculations[k] = round(v/len(pairs), 2)
     return gene_calculations
