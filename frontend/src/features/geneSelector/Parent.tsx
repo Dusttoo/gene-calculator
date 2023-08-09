@@ -4,7 +4,6 @@ import Locus from "./Locus";
 import { Loci, LocusData, Parent } from "../../Models/geneSelector";
 
 export default function ParentBox(parent: Parent) {
-  console.log(genes)
   const locusData: LocusData = {locusTypes: [...genes ]};
 
   return (

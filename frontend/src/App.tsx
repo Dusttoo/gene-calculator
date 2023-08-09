@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useAppSelector } from "./app/hooks";
 import {
   selectGeneState,
@@ -6,9 +6,25 @@ import {
 import styles from "./app.module.css";
 import ParentBox from "./features/geneSelector/Parent";
 import { SelectedGenes, SelectedLoci } from "./Models/geneSelector";
+import GeneyLogo from "./assets/geneyLogo";
+// import { LogoStyles } from "./Models/logoStyles";
 
 function App() {
   const geneState = useAppSelector(selectGeneState);
+  const [windowDimensions, setWindowDimensions] = useState({height: 0, width: 0})
+  // const logoStyle: LogoStyles = {
+  //   height: "820",
+  //   width: "462",
+  //   mainColor: "#1f3a68",
+  //   secondaryColor: "#4eb1cb",
+  //   accentColor: "#9bb5bc",
+  // };
+  useEffect(() => {
+  const dimensions = getWindowDimensions()
+  setWindowDimensions(dimensions)
+
+  }, [])
+  
 
   const handleSubmit = () => {
     const loci: SelectedLoci = {};
@@ -26,21 +42,43 @@ function App() {
      })
 
      //Make call to server to get results
-     console.log(listOfGenes)
+    //  console.log(listOfGenes)
 
   };
 
+  function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+      width,
+      height,
+    };
+  }
+
+  console.log(windowDimensions)
+
   return (
-    <main className={styles.main}>
-      <h1 className={styles.header}>Geney</h1>
-      <div className={styles.locusContainer}>
-        <ParentBox parent="Sire" />
-        <ParentBox parent="Dam" />
+    <>
+      <div className="logoContainer">
+        {/* <GeneyLogo
+          height={windowDimensions.height}
+          width={windowDimensions.width}
+          mainColor="#1f3a68"
+          secondaryColor="#4eb1cb"
+          accentColor="#9bb5bc"
+        /> */}
       </div>
-      <div>
-        <button onClick={() => handleSubmit()}>Submit</button>
-      </div>
-    </main>
+
+      <main className={styles.main}>
+        <h1 className={styles.header}>Geney</h1>
+        <div className={styles.locusContainer}>
+          <ParentBox parent="Sire" />
+          <ParentBox parent="Dam" />
+        </div>
+        <div>
+          <button onClick={() => handleSubmit()}>Submit</button>
+        </div>
+      </main>
+    </>
   );
 }
 
