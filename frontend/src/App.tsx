@@ -1,22 +1,23 @@
-import React, {useEffect, useState} from "react";
+import { useState } from "react";
+import Head from "next/head";
 import { useAppSelector } from "./app/hooks";
-import {
-  selectGeneState,
-} from "./features/geneSelector/geneSlice";
+import { selectGeneState } from "./features/geneSelector/geneSlice";
 import styles from "./app.module.css";
 import ParentBox from "./features/geneSelector/Parent";
-import { GeneResults, SelectedGenes, SelectedLoci } from "./Models/geneSelector";
-import GeneyLogo from "./assets/geneyLogo";
-// import { LogoStyles } from "./Models/logoStyles";
+import {
+  GeneResults,
+  SelectedGenes,
+  SelectedLoci,
+} from "./Models/geneSelector";
 
 function App() {
   const geneState = useAppSelector(selectGeneState);
   const [geneResults, setGeneResults] = useState<GeneResults>({});
-  const [results, setResults] = useState(false)
+  const [results, setResults] = useState(false);
 
   const handleSubmit = async () => {
     const loci: SelectedLoci = {};
-    const listOfGenes: string[][] = []
+    const listOfGenes: string[][] = [];
     for (let i = 0; i < geneState.length; i++) {
       const locus: SelectedGenes = geneState[i];
       if (loci[locus.locus]) {
@@ -25,32 +26,34 @@ function App() {
         loci[locus.locus] = [geneState[i].gene];
       }
     }
-     Object.values(loci).forEach((genes) => {
-        listOfGenes.push(genes)
-     })
+    Object.values(loci).forEach((genes) => {
+      listOfGenes.push(genes);
+    });
 
-     try {
-       const res = await fetch(`/api/gene-calculator`, {
-         method: "POST",
-         headers: { "Content-Type": "application/json" },
-         body: JSON.stringify(listOfGenes),
-       });
-       const data = await res.json();
-       console.log(data)
-       setGeneResults(data)
-       setResults(true)
-     } catch (err) {
-       console.log(err);
-     }
+    try {
+      const res = await fetch(`/api/gene-calculator`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(listOfGenes),
+      });
+      const data = await res.json();
+      console.log(data);
+      setGeneResults(data);
+      setResults(true);
+    } catch (err) {
+      console.log(err);
+    }
 
-     //Make call to server to get results
-     console.log(geneResults)
-
+    //Make call to server to get results
+    console.log(geneResults);
   };
-  console.log(results)
+  console.log(results);
 
   return (
-    <>
+    <div>
+      <Head>
+        <title>Geney</title>
+      </Head>
       <div className="logoContainer"></div>
 
       {results ? (
@@ -79,7 +82,7 @@ function App() {
           </div>
         </main>
       )}
-    </>
+    </div>
   );
 }
 
