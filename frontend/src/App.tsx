@@ -9,6 +9,7 @@ import {
   SelectedGenes,
   SelectedLoci,
 } from "./Models/geneSelector";
+import GeneResultsList from "./features/geneResults/geneResults";
 
 function App() {
   const geneState = useAppSelector(selectGeneState);
@@ -58,6 +59,7 @@ function App() {
 
       {results ? (
         <div>
+          {/* <GeneResultsList results={geneResults} /> */}
           {Object.keys(geneResults).map((key) => {
             const value = geneResults[key];
             return (

@@ -1,7 +1,7 @@
 "client side";
 import React, { useState, useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { addGene, removeGene, selectGeneState } from "./geneSlice";
+import { useAppDispatch } from "../../app/hooks";
+import { addGene, removeGene } from "./geneSlice";
 import { Gene } from "../../Models/geneSelector";
 import styles from "./GeneSelector.module.css";
 
