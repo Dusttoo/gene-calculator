@@ -8,7 +8,8 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:8080",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://gene-calculator-web-14271e2fb13f.herokuapp.com/"
 ]
 
 app.add_middleware(
