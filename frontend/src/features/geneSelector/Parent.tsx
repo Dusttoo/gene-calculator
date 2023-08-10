@@ -19,9 +19,7 @@ export default function ParentBox(parent: Parent) {
             />
           </div>
         );
-
-})}
-      
+      })}
     </div>
   );
 }

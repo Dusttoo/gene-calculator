@@ -1,7 +1,6 @@
 import { useState } from "react";
-import Head from "next/head";
-import { useAppSelector } from "./app/hooks";
-import { selectGeneState } from "./features/geneSelector/geneSlice";
+import { useAppSelector, useAppDispatch } from "./app/hooks";
+import { selectGeneState, resetGene } from "./features/geneSelector/geneSlice";
 import styles from "./app.module.css";
 import ParentBox from "./features/geneSelector/Parent";
 import {
@@ -15,6 +14,8 @@ function App() {
   const geneState = useAppSelector(selectGeneState);
   const [geneResults, setGeneResults] = useState<GeneResults>({});
   const [results, setResults] = useState(false);
+  const dispatch = useAppDispatch();
+
 
   const handleSubmit = async () => {
     const loci: SelectedLoci = {};
@@ -47,17 +48,16 @@ function App() {
     } catch (err) {
       console.log(err);
     }
-
-    //Make call to server to get results
-    console.log(geneResults);
   };
-  console.log(results);
+
+  const resetForm = () => {
+    setResults(false);
+    dispatch(resetGene())
+
+  }
 
   return (
     <div>
-      {/* <Head>
-        <title>Geney</title>
-      </Head> */}
       <div className="logoContainer"></div>
 
       {results ? (
@@ -73,11 +73,10 @@ function App() {
               </div>
             );
           })}
-          <button onClick={() => setResults(false)}>Try again</button>
+          <button onClick={() => resetForm()}>Try again</button>
         </div>
       ) : (
         <main className={styles.main}>
-          <h1 className={styles.header}>Geney</h1>
           <div className={styles.locusContainer}>
             <ParentBox parent="Sire" />
             <ParentBox parent="Dam" />

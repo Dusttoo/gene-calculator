@@ -40,7 +40,7 @@
                 "gene": "B"
             },
             {
-                "name": "Normal pigment",
+                "name": "Liver pigment",
                 "locus": "B",
                 "description": "A bb dog produces liver eumelanin instead of black.",
                 "gene": "b"

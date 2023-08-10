@@ -15,6 +15,12 @@ export type Gene = {
   gene: string;
 };
 
+export type GeneButtonProps = {
+  gene: Gene
+  setMaxSelected: (val: boolean) => void;
+  maxSelected: boolean
+}
+
 export type Parent = {
   parent: string;
 };

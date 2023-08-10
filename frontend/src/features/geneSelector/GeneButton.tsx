@@ -1,40 +1,50 @@
 "client side";
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { addGene, removeGene } from "./geneSlice";
-import { Gene } from "../../Models/geneSelector";
+import { GeneButtonProps } from "../../Models/geneSelector";
 import styles from "./GeneSelector.module.css";
+import { useAppSelector } from "../../app/hooks";
+import { selectGeneState } from "../../features/geneSelector/geneSlice";
 
-export default function GeneButton({ name, description, gene, locus }: Gene) {
-  // TODO: - Select border does not dynamically update - need to fix
+export default function GeneButton({gene, setMaxSelected, maxSelected}: GeneButtonProps) {
   const dispatch = useAppDispatch();
   const [selected, setSelected] = useState(false);
-  useEffect(() => {
-    updateSelected()
-  }, [selected])
-  
+  const [showDetails, setShowDetails] = useState(false);
+  const geneState = useAppSelector(selectGeneState);
+
   const updateSelected = () => {
-        if (!selected) {
-          dispatch(removeGene(gene));
-        } else {
-          dispatch(addGene({gene: gene, locus: locus}));
-        }
+    console.log(geneState);
+
+    setSelected(!selected);
+
+    if (!selected && !maxSelected) {
+      dispatch(addGene({ gene: gene.gene, locus: gene.locus }));
+    } else {
+      dispatch(removeGene(gene));
+    }
+    setMaxSelected(!maxSelected);
+
   };
 
   return (
     <>
       <button
-        onClick={() => setSelected(!selected)}
+        onClick={() => updateSelected()}
+        onMouseEnter={() => setShowDetails(true)}
+        onMouseLeave={() => setShowDetails(false)}
         className={
-          selected ? styles.geneSelectorSelected : styles.geneSelectorButton
+          maxSelected && selected ? styles.geneSelectorSelected : styles.geneSelectorButton
         }
       >
-        {gene}
+        {gene.gene}
       </button>
       {/* Show information on hover */}
-      <p className={styles.geneInfo}>
-        {name} - {description}
-      </p>
+      <div className={showDetails ? styles.geneInfo : styles.geneInfoDisabled}>
+        <span className={styles.geneInfoText}>
+          {gene.name} - {gene.description}
+        </span>
+      </div>
     </>
   );
 }

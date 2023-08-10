@@ -20,11 +20,14 @@ export const geneSlice = createSlice({
     removeGene(state, action) {
       state.geneState.splice(state.geneState.indexOf(action.payload), 1);
     },
+    resetGene(state) {
+      state.geneState = []
+    }
   },
   extraReducers: () => {},
 });
 
-export const { addGene, removeGene } = geneSlice.actions;
+export const { addGene, removeGene, resetGene } = geneSlice.actions;
 export const selectGeneState = (state: RootState) => state.genes.geneState;
 
 export default geneSlice.reducer;

@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 1rem 5rem;
   min-height: 100vh;
 }
 
@@ -19,4 +19,7 @@
   width: 100%;
 }
 
-.parentContainer {}
+.parentContainer {
+    height: 10px;
+    border-bottom: 20px solid #1F3A68;
+}

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #1F3A68;
 }
 
 code {
@@ -20,6 +21,4 @@ code {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.logo {
-  border: 1px solid red
-}
+
