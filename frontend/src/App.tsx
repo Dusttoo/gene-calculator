@@ -52,9 +52,9 @@ function App() {
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>Geney</title>
-      </Head>
+      </Head> */}
       <div className="logoContainer"></div>
 
       {results ? (
