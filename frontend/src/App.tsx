@@ -9,6 +9,7 @@ import {
   SelectedLoci,
 } from "./Models/geneSelector";
 import GeneResultsList from "./features/geneResults/geneResults";
+import Header from "./features/components/Header";
 
 function App() {
   const geneState = useAppSelector(selectGeneState);
@@ -58,8 +59,7 @@ function App() {
 
   return (
     <div>
-      <div className="logoContainer"></div>
-
+      <Header />
       {results ? (
         <div>
           {/* <GeneResultsList results={geneResults} /> */}
@@ -82,7 +82,7 @@ function App() {
             <ParentBox parent="Dam" />
           </div>
           <div>
-            <button onClick={() => handleSubmit()}>Submit</button>
+            <button className={styles.submitButton} onClick={() => handleSubmit()}>Submit</button>
           </div>
         </main>
       )}
