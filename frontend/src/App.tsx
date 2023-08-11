@@ -5,6 +5,7 @@ import styles from "./app.module.css";
 import ParentBox from "./features/geneSelector/Parent";
 import {
   GeneResults,
+  Results,
   SelectedGenes,
   SelectedLoci,
 } from "./Models/geneSelector";
@@ -13,7 +14,7 @@ import Header from "./features/components/Header";
 
 function App() {
   const geneState = useAppSelector(selectGeneState);
-  const [geneResults, setGeneResults] = useState<GeneResults>({});
+  const [geneResults, setGeneResults] = useState<Results>({});
   const [results, setResults] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -43,7 +44,6 @@ function App() {
         }
       );
       const data = await res.json();
-      console.log(data);
       setGeneResults(data);
       setResults(true);
     } catch (err) {
@@ -62,17 +62,7 @@ function App() {
       <Header />
       {results ? (
         <div>
-          {/* <GeneResultsList results={geneResults} /> */}
-          {Object.keys(geneResults).map((key) => {
-            const value = geneResults[key];
-            return (
-              <div>
-                <p>
-                  {key} : {value}
-                </p>
-              </div>
-            );
-          })}
+          <GeneResultsList results={geneResults} />
           <button onClick={() => resetForm()}>Try again</button>
         </div>
       ) : (

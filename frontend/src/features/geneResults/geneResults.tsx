@@ -1,18 +1,26 @@
 import { GeneResults } from "../../Models/geneSelector";
 
 export default function GeneResultsList(results: GeneResults) {
-  return (
-    <>
-      {Object.keys(results).map((key) => {
-        const value = results[key];
+  const lociResults = Object.keys(results.results);
+  const parseResults = () => {
+    lociResults.map((key) => {
+      const values = results.results[key]
+      values.map((value) => {
+
         return (
-          <div>
+          <div key={key}>
             <p>
               {key} : {value}
             </p>
           </div>
         );
-      })}
+        
+    })
+    })
+  }
+  return (
+    <>
+      {parseResults()}
     </>
   );
 }

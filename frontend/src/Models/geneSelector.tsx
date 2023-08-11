@@ -34,6 +34,10 @@ export type SelectedLoci = {
   [key: string]: string[]
 };
 
-export type GeneResults = {
+export type Results = {
   [key: string]: string[];
+}
+
+export type GeneResults = {
+  results: Results;
 };

@@ -44,9 +44,19 @@ def get_gene_calculations(genes: list[list[str]]):
 
     for gene_set in genes:
         pairs = find_all_pairs(gene_set)
+        print(pairs)
 
         # Calculates the percentage of each combination
         counted_pairs = Counter(pairs)
         for k, v in counted_pairs.items():
-            gene_calculations[k] = round(v/len(pairs), 2)
+            locus = k[0].lower()
+            value = round(v/len(pairs), 2)
+            if(locus in gene_calculations):
+                gene_calculations[locus].append({'gene': k, 'value': value})
+
+            else:
+
+                gene_calculations[locus] = [{'gene': k, 'value': value}]
+
+    print(gene_calculations)
     return gene_calculations
