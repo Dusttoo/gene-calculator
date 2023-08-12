@@ -4,7 +4,7 @@ import { selectGeneState, resetGene } from "./features/geneSelector/geneSlice";
 import styles from "./app.module.css";
 import ParentBox from "./features/geneSelector/Parent";
 import {
-  GeneResults,
+  Results,
   SelectedGenes,
   SelectedLoci,
 } from "./Models/geneSelector";
@@ -13,7 +13,7 @@ import Header from "./features/components/Header";
 
 function App() {
   const geneState = useAppSelector(selectGeneState);
-  const [geneResults, setGeneResults] = useState<GeneResults>({});
+  const [geneResults, setGeneResults] = useState<Results>({});
   const [results, setResults] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -43,9 +43,9 @@ function App() {
         }
       );
       const data = await res.json();
-      console.log(data);
       setGeneResults(data);
       setResults(true);
+      window.scrollTo(0, 0);
     } catch (err) {
       console.log(err);
     }
@@ -61,19 +61,11 @@ function App() {
     <div>
       <Header />
       {results ? (
-        <div>
-          {/* <GeneResultsList results={geneResults} /> */}
-          {Object.keys(geneResults).map((key) => {
-            const value = geneResults[key];
-            return (
-              <div>
-                <p>
-                  {key} : {value}
-                </p>
-              </div>
-            );
-          })}
-          <button onClick={() => resetForm()}>Try again</button>
+        <div className={styles.resultsContainer}>
+          <GeneResultsList results={geneResults} />
+          <button className={styles.submitButton} onClick={() => resetForm()}>
+            Try again
+          </button>
         </div>
       ) : (
         <main className={styles.main}>
@@ -82,7 +74,12 @@ function App() {
             <ParentBox parent="Dam" />
           </div>
           <div>
-            <button className={styles.submitButton} onClick={() => handleSubmit()}>Submit</button>
+            <button
+              className={styles.submitButton}
+              onClick={() => handleSubmit()}
+            >
+              Submit
+            </button>
           </div>
         </main>
       )}

@@ -8,7 +8,6 @@ export default function Locus({ name, description, genes }: Loci) {
   // Add handling for not allowing multiple genes on a locus be selected
   // const selectedGenes: string[] = []
   const [maxSelected, setMaxSelected] = useState(false);
-  // console.log(maxSelected)
   return (
     <div className={styles.locusCard}>
       <h2>{name} Locus</h2>

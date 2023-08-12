@@ -4,18 +4,13 @@ import { useAppDispatch } from "../../app/hooks";
 import { addGene, removeGene } from "./geneSlice";
 import { GeneButtonProps } from "../../Models/geneSelector";
 import styles from "./GeneSelector.module.css";
-import { useAppSelector } from "../../app/hooks";
-import { selectGeneState } from "../../features/geneSelector/geneSlice";
 
 export default function GeneButton({gene, setMaxSelected, maxSelected}: GeneButtonProps) {
   const dispatch = useAppDispatch();
   const [selected, setSelected] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const geneState = useAppSelector(selectGeneState);
 
   const updateSelected = () => {
-    console.log(geneState);
-
     setSelected(!selected);
 
     if (!selected && !maxSelected) {
