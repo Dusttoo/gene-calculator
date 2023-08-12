@@ -1,4 +1,4 @@
 .navBar {
-    background-color: #1F3A68;
+    background-color: var(--main-blue);
     height: 2rem;
 }

@@ -58,5 +58,4 @@ def get_gene_calculations(genes: list[list[str]]):
 
                 gene_calculations[locus] = [{'gene': k, 'value': value}]
 
-    print(gene_calculations)
     return gene_calculations

@@ -4,7 +4,6 @@ import { selectGeneState, resetGene } from "./features/geneSelector/geneSlice";
 import styles from "./app.module.css";
 import ParentBox from "./features/geneSelector/Parent";
 import {
-  GeneResults,
   Results,
   SelectedGenes,
   SelectedLoci,
@@ -46,6 +45,7 @@ function App() {
       const data = await res.json();
       setGeneResults(data);
       setResults(true);
+      window.scrollTo(0, 0);
     } catch (err) {
       console.log(err);
     }
@@ -61,9 +61,11 @@ function App() {
     <div>
       <Header />
       {results ? (
-        <div>
+        <div className={styles.resultsContainer}>
           <GeneResultsList results={geneResults} />
-          <button onClick={() => resetForm()}>Try again</button>
+          <button className={styles.submitButton} onClick={() => resetForm()}>
+            Try again
+          </button>
         </div>
       ) : (
         <main className={styles.main}>
@@ -72,7 +74,12 @@ function App() {
             <ParentBox parent="Dam" />
           </div>
           <div>
-            <button className={styles.submitButton} onClick={() => handleSubmit()}>Submit</button>
+            <button
+              className={styles.submitButton}
+              onClick={() => handleSubmit()}
+            >
+              Submit
+            </button>
           </div>
         </main>
       )}
